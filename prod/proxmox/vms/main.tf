@@ -1,19 +1,11 @@
 locals {
   vms = {
-    "ubuntu-test-1" = {
+    "powerdns-master" = {
       vm_node      = "proxmox-pve-01"
       clone_vm_id  = "900"
       cpu          = "1"
-      memory       = "2048"
-      ipv4_address = "10.10.30.19/24"
-      ipv4_gw      = "10.10.30.254"
-    }
-    "ubuntu-test-2" = {
-      vm_node      = "proxmox-pve-01"
-      clone_vm_id  = "900"
-      cpu          = "2"
       memory       = "1024"
-      ipv4_address = "10.10.30.20/24"
+      ipv4_address = "10.10.30.1/24"
       ipv4_gw      = "10.10.30.254"
     }
   }
@@ -21,7 +13,7 @@ locals {
 
 module "proxmox_vm" {
 
-  source = "github.com/atyiadam/adama-terraform-modules//proxmox/vm?ref=v0.0.1"
+  source = "github.com/atyiadam/adama-terraform-modules//proxmox/vm?ref=v0.0.2"
 
   for_each = local.vms
 
