@@ -1,4 +1,4 @@
 provider "powerdns" {
   api_key    = var.powerdns_api_key
-  server_url = "http://10.10.30.1:8082"
+  server_url = format("http://%s:%s", local.ns_ip_address, local.api_port)
 }
