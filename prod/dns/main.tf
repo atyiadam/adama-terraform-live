@@ -5,6 +5,7 @@ locals {
   api_port      = "8082"
 }
 
+## Nameserver related resources
 resource "powerdns_zone" "ns-home" {
   name        = "home.adamatyi.com."
   kind        = "Native"
@@ -29,5 +30,16 @@ resource "powerdns_record" "ns-soa" {
   records = ["ns1.home.adamatyi.com. atyiadam.gmail.com. 2024102501 3600 600 1814400 7200"]
 
   depends_on = [powerdns_record.ns-a]
+}
+
+## Random DNS resources
+resource "powerdns_record" "synology-a" {
+  zone    = "home.adamatyi.com."
+  name    = "synology.home.adamatyi.com."
+  type    = "A"
+  ttl     = local.short_ttl
+  records = ["10.10.30.2"]
+
+  depends_on = [powerdns_zone.ns-home]
 }
 
