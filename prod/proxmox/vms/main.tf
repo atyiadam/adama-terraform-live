@@ -1,6 +1,8 @@
 locals {
   all_vms = merge(
     local.dns_servers,
+    local.k8s_01_cluster,
+    local.misc_servers,
     local.test_servers
   )
 }

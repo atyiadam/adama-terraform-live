@@ -43,3 +43,17 @@ resource "powerdns_record" "synology-a" {
   depends_on = [powerdns_zone.ns-home]
 }
 
+## Zones
+resource "powerdns_zone" "prod" {
+  name        = "prod.home.adamatyi.com."
+  kind        = "Native"
+  nameservers = ["ns1.home.adamatyi.com."]
+}
+
+resource "powerdns_zone" "k8s_01" {
+  name        = "k8s-01.prod.home.adamatyi.com."
+  kind        = "Native"
+  nameservers = ["ns1.home.adamatyi.com."]
+
+  depends_on = [powerdns_zone.prod] 
+}

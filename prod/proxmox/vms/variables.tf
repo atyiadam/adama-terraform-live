@@ -41,3 +41,7 @@ variable "powerdns_api_key" {
   sensitive = true
 }
 
+variable "env" {
+  type        = string
+  description = "Environment"
+}
