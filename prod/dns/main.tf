@@ -44,6 +44,36 @@ resource "powerdns_record" "synology-a" {
   depends_on = [powerdns_zone.ns-home]
 }
 
+resource "powerdns_record" "proxmox-a" {
+  zone    = "home.adamatyi.com."
+  name    = "proxmox.home.adamatyi.com."
+  type    = "A"
+  ttl     = local.short_ttl
+  records = ["10.10.20.10"]
+
+  depends_on = [powerdns_zone.ns-home]
+}
+
+resource "powerdns_record" "traefik-dashboard-a" {
+  zone    = "home.adamatyi.com."
+  name    = "traefik-dashboard.home.adamatyi.com."
+  type    = "A"
+  ttl     = local.short_ttl
+  records = ["10.10.30.101"]
+
+  depends_on = [powerdns_zone.ns-home]
+}
+
+resource "powerdns_record" "keycloak-a" {
+  zone    = "home.adamatyi.com."
+  name    = "keycloak.home.adamatyi.com."
+  type    = "A"
+  ttl     = local.short_ttl
+  records = ["10.10.30.101"]
+
+  depends_on = [powerdns_zone.ns-home]
+}
+
 ## Zones
 resource "powerdns_zone" "prod" {
   name        = "prod.home.adamatyi.com."
