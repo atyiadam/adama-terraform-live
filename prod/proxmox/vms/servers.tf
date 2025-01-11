@@ -4,6 +4,7 @@ locals {
       vm_node      = "proxmox-pve-01"
       clone_vm_id  = "900"
       cpu          = "1"
+      cpu_type     = var.default_cpu_type
       memory       = "1024"
       ipv4_address = "10.10.30.1/24"
       ipv4_gw      = var.default_gw_ip
@@ -18,6 +19,7 @@ locals {
       vm_node      = "proxmox-pve-01"
       clone_vm_id  = "900"
       cpu          = "1"
+      cpu_type     = var.default_cpu_type
       memory       = "1024"
       ipv4_address = "10.10.30.100/24"
       ipv4_gw      = var.default_gw_ip
@@ -27,10 +29,26 @@ locals {
     }
     "dockerhost" = {
       vm_node      = "proxmox-pve-01"
-      clone_vm_id  = "900"
+      clone_vm_id  = "901"
       cpu          = "1"
+      cpu_type     = "host"
       memory       = "1024"
       ipv4_address = "10.10.30.101/24"
+      ipv4_gw      = var.default_gw_ip
+      dns_domain   = var.dns_domain
+      dns_a_record = true
+      dns_servers  = ["127.0.0.1", var.dns_ns_ip]
+    }
+  }
+
+  loadbalancers = {
+    "haproxy-1" = {
+      vm_node      = "proxmox-pve-01"
+      clone_vm_id  = "901"
+      cpu          = "1"
+      cpu_type     = var.default_cpu_type
+      memory       = "1024"
+      ipv4_address = "10.10.30.110/24"
       ipv4_gw      = var.default_gw_ip
       dns_domain   = var.dns_domain
       dns_a_record = true
@@ -44,6 +62,7 @@ locals {
       vm_node      = "proxmox-pve-01"
       clone_vm_id  = "901"
       cpu          = "2"
+      cpu_type     = var.default_cpu_type
       memory       = "4096"
       ipv4_address = "10.10.30.152/24"
       ipv4_gw      = var.default_gw_ip
@@ -55,6 +74,7 @@ locals {
       vm_node      = "proxmox-pve-01"
       clone_vm_id  = "901"
       cpu          = "2"
+      cpu_type     = var.default_cpu_type
       memory       = "4096"
       ipv4_address = "10.10.30.153/24"
       ipv4_gw      = var.default_gw_ip
@@ -66,6 +86,7 @@ locals {
       vm_node      = "proxmox-pve-01"
       clone_vm_id  = "901"
       cpu          = "2"
+      cpu_type     = var.default_cpu_type
       memory       = "4096"
       ipv4_address = "10.10.30.154/24"
       ipv4_gw      = var.default_gw_ip
@@ -78,6 +99,7 @@ locals {
       vm_node      = "proxmox-pve-01"
       clone_vm_id  = "901"
       cpu          = "2"
+      cpu_type     = var.default_cpu_type
       memory       = "4096"
       ipv4_address = "10.10.30.156/24"
       ipv4_gw      = var.default_gw_ip

@@ -3,15 +3,16 @@ locals {
     local.dns_servers,
     local.k8s_01_cluster,
     local.misc_servers,
+    local.loadbalancers,
     local.test_servers
   )
 }
 
 module "proxmox_vm" {
 
-  source = "github.com/atyiadam/adama-terraform-modules//proxmox/vm?ref=v0.0.8"
+  source = "github.com/atyiadam/adama-terraform-modules//proxmox/vm?ref=v0.0.9"
   # For local development
-  # source = "../../../../adama-terraform-modules/proxmox/vm/" 
+  # source = "../../../../adama-terraform-modules/proxmox/vm/"
 
   for_each = local.all_vms
 
@@ -19,8 +20,9 @@ module "proxmox_vm" {
   vm_node     = each.value.vm_node
   clone_vm_id = each.value.clone_vm_id
 
-  cpu    = each.value.cpu
-  memory = each.value.memory
+  cpu      = each.value.cpu
+  cpu_type = each.value.cpu_type
+  memory   = each.value.memory
 
   ipv4_address = each.value.ipv4_address
   ipv4_gw      = each.value.ipv4_gw

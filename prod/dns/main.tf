@@ -49,7 +49,7 @@ resource "powerdns_record" "proxmox-a" {
   name    = "proxmox.home.adamatyi.com."
   type    = "A"
   ttl     = local.short_ttl
-  records = ["10.10.20.10"]
+  records = ["10.10.30.110"]
 
   depends_on = [powerdns_zone.ns-home]
 }
@@ -70,6 +70,16 @@ resource "powerdns_record" "keycloak-a" {
   type    = "A"
   ttl     = local.short_ttl
   records = ["10.10.30.101"]
+
+  depends_on = [powerdns_zone.ns-home]
+}
+
+resource "powerdns_record" "k8s-01-prod-api-server-a" {
+  zone    = "k8s-01.prod.home.adamatyi.com."
+  name    = "kubernetes-api.k8s-01.prod.home.adamatyi.com."
+  type    = "A"
+  ttl     = local.short_ttl
+  records = ["10.10.30.155"]
 
   depends_on = [powerdns_zone.ns-home]
 }
