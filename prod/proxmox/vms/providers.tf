@@ -8,3 +8,7 @@ provider "powerdns" {
   api_key    = var.powerdns_api_key
   server_url = "http://${var.dns_ns_ip}:8082"
 }
+
+provider "cloudflare" {
+  # token pulled from $CLOUDFLARE_API_TOKEN
+}
