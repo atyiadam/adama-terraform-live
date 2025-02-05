@@ -94,7 +94,7 @@ locals {
       dns_a_record = true
       dns_servers  = ["127.0.0.1", var.dns_ns_ip]
     }
-    # Agent CIDR: 10.10.30.152/29 (152-160)
+    # Agent CIDR: 10.10.30.152/29 (152-159)
     "agent-01" = {
       vm_node      = "proxmox-pve-01"
       clone_vm_id  = "902"

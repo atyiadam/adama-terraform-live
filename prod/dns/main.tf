@@ -84,6 +84,26 @@ resource "powerdns_record" "k8s-01-prod-api-server-a" {
   depends_on = [powerdns_zone.ns-home]
 }
 
+resource "powerdns_record" "argocd-k8s-01-prod-a" {
+  zone    = "home.adamatyi.com."
+  name    = "argocd-k8s-01-prod.home.adamatyi.com."
+  type    = "A"
+  ttl     = local.short_ttl
+  records = ["10.10.30.110"]
+
+  depends_on = [powerdns_zone.ns-home]
+}
+
+resource "powerdns_record" "jellyfin-a" {
+  zone    = "home.adamatyi.com."
+  name    = "jellyfin.home.adamatyi.com."
+  type    = "A"
+  ttl     = local.short_ttl
+  records = ["10.10.30.110"]
+
+  depends_on = [powerdns_zone.ns-home]
+}
+
 ## Zones
 resource "powerdns_zone" "prod" {
   name        = "prod.home.adamatyi.com."
