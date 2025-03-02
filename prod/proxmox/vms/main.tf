@@ -10,14 +10,15 @@ locals {
 
 module "proxmox_vm" {
 
-  source = "github.com/atyiadam/adama-terraform-modules//proxmox/vm?ref=v0.0.9"
+  # source = "github.com/atyiadam/adama-terraform-modules//proxmox/vm?ref=v0.0.9"
   # For local development
-  # source = "../../../../adama-terraform-modules/proxmox/vm/"
+  source = "../../../../adama-terraform-modules/proxmox/vm/"
 
   for_each = local.all_vms
 
   vm_name     = each.key
   vm_node     = each.value.vm_node
+  clone_node_name= lookup(each.value, "clone_node_name", null)
   clone_vm_id = each.value.clone_vm_id
 
   cpu      = each.value.cpu

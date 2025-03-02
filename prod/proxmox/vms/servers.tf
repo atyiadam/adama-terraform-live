@@ -100,8 +100,32 @@ locals {
       clone_vm_id  = "902"
       cpu          = "2"
       cpu_type     = "host"
-      memory       = "4096"
+      memory       = "16384"
       ipv4_address = "10.10.30.152/24"
+      ipv4_gw      = var.default_gw_ip
+      dns_domain   = "k8s-01.${var.env}.${var.dns_domain}"
+      dns_a_record = true
+      dns_servers  = ["127.0.0.1", var.dns_ns_ip]
+    }
+    "agent-02" = {
+      vm_node      = "proxmox-pve-01"
+      clone_vm_id  = "902"
+      cpu          = "2"
+      cpu_type     = "host"
+      memory       = "8192"
+      ipv4_address = "10.10.30.153/24"
+      ipv4_gw      = var.default_gw_ip
+      dns_domain   = "k8s-01.${var.env}.${var.dns_domain}"
+      dns_a_record = true
+      dns_servers  = ["127.0.0.1", var.dns_ns_ip]
+    }
+    "agent-03" = {
+      vm_node      = "proxmox-pve-01"
+      clone_vm_id  = "902"
+      cpu          = "2"
+      cpu_type     = "host"
+      memory       = "8192"
+      ipv4_address = "10.10.30.154/24"
       ipv4_gw      = var.default_gw_ip
       dns_domain   = "k8s-01.${var.env}.${var.dns_domain}"
       dns_a_record = true
