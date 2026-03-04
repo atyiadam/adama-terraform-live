@@ -3,3 +3,9 @@ variable "keycloak_url" {
   type        = string
 }
 
+
+variable "powerdns_api_key" {
+  description = "API key for PowerDNS authentication"
+  type        = string
+  sensitive   = true
+}

@@ -2,7 +2,7 @@ locals {
   k8s_01_cluster = {
     # Server CIDR: 10.10.30.144/29 (144-151)
     "server-01" = {
-      vm_node      = "proxmox-pve-01"
+      vm_node      = "proxmox-pve-02"
       clone_vm_id  = "921"
       cpu          = "2"
       cpu_type     = "host"
@@ -39,8 +39,8 @@ locals {
     }
     # Agent CIDR: 10.10.30.152/29 (152-159)
     "agent-01" = {
-      vm_node      = "proxmox-pve-01"
-      clone_vm_id  = "912"
+      vm_node      = "proxmox-pve-02"
+      clone_vm_id  = "922"
       cpu          = "2"
       cpu_type     = "host"
       memory       = "16384"
