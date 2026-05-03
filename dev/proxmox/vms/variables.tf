@@ -46,7 +46,3 @@ variable "env" {
   description = "Environment"
 }
 
-variable "default_cpu_type" {
-  type        = string
-  description = "Default CPU Type for VM"
-}

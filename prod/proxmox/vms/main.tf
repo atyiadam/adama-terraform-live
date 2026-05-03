@@ -12,7 +12,7 @@ locals {
 
 module "proxmox_vm" {
 
-  source = "github.com/atyiadam/adama-terraform-modules//proxmox/vm?ref=v0.0.11"
+  source = "github.com/atyiadam/adama-terraform-modules//proxmox/vm?ref=v0.0.12"
   # For local development
   # source = "../../../../adama-terraform-modules/proxmox/vm/"
 

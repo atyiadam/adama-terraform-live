@@ -1,13 +1,13 @@
 locals {
   all_vms = merge(
     local.k8s_01_dev_cluster,
-    # local.test_servers
+    local.test_servers
   )
 }
 
 module "proxmox_vm" {
 
-  source = "github.com/atyiadam/adama-terraform-modules//proxmox/vm?ref=v0.0.11"
+  source = "github.com/atyiadam/adama-terraform-modules//proxmox/vm?ref=v0.0.12"
   # For local development
   # source = "../../../../adama-terraform-modules/proxmox/vm/"
 

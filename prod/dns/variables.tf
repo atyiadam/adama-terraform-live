@@ -1,7 +1,7 @@
-variable "keycloak_url" {
-  description = "Keycloak URL for accessing the keycloak server"
-  type        = string
-}
+# variable "keycloak_url" {
+#   description = "Keycloak URL for accessing the keycloak server"
+#   type        = string
+# }
 
 
 variable "powerdns_api_key" {
